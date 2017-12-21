@@ -33,7 +33,7 @@ public class PopulateDatabase implements Command {
                     Long.parseLong(df.getNumberText(9))));
             categories.add(db.addCategory(df.getRandomWord()));
             items.add(db.addItem(df.getRandomWord(),
-                    (float) df.getNumberBetween(100, 10000) / 100));
+                    (double) df.getNumberBetween(100, 10000) / 100));
             customers.add(db.addCustomer(df.getFirstName(), df.getLastName(),
                     df.getNumberBetween(18, 100), df.getAddress()));
         }

@@ -11,7 +11,7 @@ public class Item {
     private Long id;
 
     private String productName;
-    private float price;
+    private double price;
     private Date availableFrom;
 
     @Relationship(type = "IN")
@@ -32,7 +32,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(String productName, float price) {
+    public Item(String productName, double price) {
         this.productName = productName;
         this.price = price;
         this.availableFrom = new Date();
@@ -59,7 +59,7 @@ public class Item {
         return productName;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 

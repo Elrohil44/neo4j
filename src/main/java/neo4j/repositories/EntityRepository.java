@@ -23,7 +23,7 @@ public interface EntityRepository extends Neo4jRepository<Entity, Long>{
 
     @Depth(2)
     @Query("MATCH (e)-[]->(b) RETURN e LIMIT 100")
-    Result get50();
+    Result get100();
 
     @Query("MATCH (n) WHERE id(n)={n} RETURN n")
     Object findById(@Param("n") Long id);

@@ -50,23 +50,26 @@ public class Main {
                            GetShortestPath getShortestPath,
                            GetAllRelationships getAllRelationships,
                            EntityRepository entityRepository,
-                           CustomerRepository customerRepository
+                           CustomerRepository customerRepository,
+                           ItemRepository itemRepository
                            ){
         return args -> {
             db.drop();
             populateDatabase.execute();
-            getShortestPath.execute();
-            getAllRelationships.execute();
-            Result result = entityRepository.get50();
+//            getShortestPath.execute();
+//            getAllRelationships.execute();
             ArrayList<Customer> customers = new ArrayList<>();
             customerRepository.findAll().forEach(customer -> {
                 if (!customer.getItemsBought().isEmpty()) customers.add(customer);
             });
-
-
-            Result result1 = entityRepository.getShortestPath(customers.get(3), customers.get(15));
+            //
+            // Shortest path
+            //
             System.out.println(db.getShortestPath(customers.get(3), customers.get(23)).describe());
-            Result rels = entityRepository.getRelations(customers.get(23));
+
+            //
+            // Relationships
+            //
             db.getRelationships(customers.get(23)).forEach(System.out::println);
             System.out.println("Finishing");
 

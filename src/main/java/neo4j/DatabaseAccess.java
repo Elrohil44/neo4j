@@ -46,7 +46,7 @@ public class DatabaseAccess {
         return session;
     }
 
-    public Item addItem(String productName, float price){
+    public Item addItem(String productName, double price){
         Item item = new Item(productName, price);
 
         itemRepository.save(item);
@@ -73,6 +73,27 @@ public class DatabaseAccess {
         customerRepository.save(customer);
         return customer;
     }
+
+    public Warehouse addWarehouse(Warehouse warehouse){
+        warehouseRepository.save(warehouse);
+        return warehouse;
+    }
+
+    public Customer addCustomer(Customer customer){
+        customerRepository.save(customer);
+        return customer;
+    }
+
+    public Item addItem(Item item){
+        itemRepository.save(item);
+        return item;
+    }
+
+    public Category addCategory(Category category){
+        categoryRepository.save(category);
+        return category;
+    }
+
 
     public Item getItem(Long id){
         return itemRepository.findOne(id);
